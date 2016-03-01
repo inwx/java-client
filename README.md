@@ -14,6 +14,7 @@ The implementation in Java requires the included .jar files, which can be found 
 For compiling you need to add these libraries to you classpath. In Eclipse this can be done with the following steps:
 - Select all files in the lib/ directory
 - Right click and go to 'Build path' -> 'Add to Build Path'
+
 Now the files should disappear and listed in your referenced libraries. The .jar-files are still in your lib/ directory, they just not displayed there after adding to your build path.
 
 If you don't use Eclipse and you want to compile it directly on your console, you can use the script 'compile_run.sh'.
