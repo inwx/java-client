@@ -10,48 +10,16 @@ You can view a detailed description of the API functions in our documentation. T
 
 Example
 -------
+The implementation in Java requires the included .jar files, which can be found in the lib/ directory.
+For compiling you need to add these libraries to you classpath. In Eclipse this can be done with the following steps:
+- Select all files in the lib/ directory
+- Right click and go to 'Build path' -> 'Add to Build Path'
 
-The implementation in Java requires the included .JAR files.
+Now the files should disappear and listed in your referenced libraries. The .jar-files are still in your lib/ directory, they just not displayed there after adding to your build path.
 
-```java
-import model.ArrayElement;
-import model.Element;
-import model.MapElement;
-import org.apache.xmlrpc.XmlRpcException;
-import java.net.MalformedURLException;
-
-public class InwxJavaExample {
-  public static void main(String args[]) throws MalformedURLException, XmlRpcException {
-    System.out.println("Starting inwx Java example ...");
-    String username = "your username";
-    String password = "your password";
-
-    Connector connector = new Connector();
-    if (connector.login(username,password)) {
-      ArrayElement myDomains = connector.checkDomain("inwx23 werew4rewr.de");
-      for ( Element item : (Element[]) myDomains.getArray(  ) ) {
-        MapElement _item = (MapElement) item;
-        System.out.println("tld: " + _item.get("tld").toString());
-        System.out.println("name: " + _item.get("name").toString());
-        System.out.println("domain: " + _item.get("domain").toString());
-        System.out.println("status: " + _item.get("status").toString());
-        System.out.println("price: " + _item.get("price").toString());
-      }
-
-      ArrayElement domains = connector.getAllNS();
-      for ( Element item : (Element[]) domains.getArray(  ) ) {
-        MapElement _item = (MapElement) item;
-        System.out.println(_item.get("domain")+":"+_item.get("type"));
-      }
-      
-      connector.logout();
-      System.out.println("logout");
-    }//if login
-  }
-}
-```
+If you don't use Eclipse and you want to compile it directly on your console, you can use the script 'compile_run.sh'.
+The script should work without any changes if you doesn't change something like the class-name. If you customize some of this parts you have to manually edit the java/c parameters in the script.
 
 License
 ----
-
 MIT
