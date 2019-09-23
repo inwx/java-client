@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'java-library'
     id 'maven-publish'
+    id 'com.diffplug.gradle.spotless' version '3.24.2'
 }
 
 group 'com.inwx'
@@ -14,6 +15,29 @@ allprojects {
 
     repositories {
         mavenCentral()
+    }
+
+    project.pluginManager.withPlugin("com.diffplug.gradle.spotless") {
+        spotless {
+            java {
+                licenseHeaderFile rootProject.file('extra/licensing/mit-license.java')
+                removeUnusedImports()
+                eclipse().configFile rootProject.file('extra/formatting/eclipse-java-google-style.xml')
+                importOrderFile rootProject.file('extra/formatting/eclipse.importorder')
+            }
+            format("misc") {
+                target("**/*.gradle", "**/*.md", "**/*.yml")
+                trimTrailingWhitespace()
+                endWithNewline()
+            }
+        }
+    }
+
+    tasks.withType(Jar) {
+        from(project.rootDir) {
+            include 'LICENSE'
+            into 'META-INF'
+        }
     }
 }
 
