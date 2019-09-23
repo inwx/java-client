@@ -12,7 +12,7 @@ public class DomaincheckWithCustomModelsExample {
 
         String username = "";
         String password = "";
-        String sharedSecret = "";
+        String sharedSecret = ""; // Only necessary if 2FA is enabled.
         String domain = "my-test-domain-which-is-definitely-not-registered6737.com";
 
         ApiClient client = new ApiClient(ApiClient.OTE_URL, true);

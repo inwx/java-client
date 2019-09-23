@@ -9,7 +9,7 @@ public class DomaincheckExample {
 
         String username = "";
         String password = "";
-        String sharedSecret = "";
+        String sharedSecret = ""; // Only necessary if 2FA is enabled.
         String domain = "my-test-domain-which-is-definitely-not-registered6737.com";
 
         // By default the ApiClient uses the test api (OT&E). If you want to use the production/live api
