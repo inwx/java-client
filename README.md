@@ -47,7 +47,6 @@ import com.inwx.domrobot.model.BasicResponse;
 public class DomaincheckExample {
 
     public static void main(String[] args) throws Exception {
-
         String username = "";
         String password = "";
         String sharedSecret = ""; // Only necessary if 2FA is enabled.
