@@ -4,8 +4,8 @@ plugins {
     id 'maven-publish'
 }
 
-group 'com.inwx.domrobot'
-version '3.0'
+group 'com.inwx'
+version '3.1'
 
 allprojects {
     if (project.plugins.hasPlugin('java')) {
@@ -23,10 +23,4 @@ dependencies {
     implementation 'org.apache.httpcomponents:httpclient:4.5.9'
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from components.java
-        }
-    }
-}
+apply from: './deploy.gradle'

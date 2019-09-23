@@ -18,30 +18,22 @@ If you still experience any kind of problems don't hesitate to contact our [supp
 
 Installation
 -------
-Currently you have to publish the gradle project to your local repository.
-
-#### Build the project and publish it to your local maven repository:
-```bash
-./gradlew publishToMavenLocal
-```
 
 #### Add the domrobot as a dependency:
 
 If you use gradle:
 ```gradle
-compile 'com.inwx.domrobot:java-client:3.0'
+compile 'com.inwx:domrobot:3.1'
 ```
 
 Or if you use maven:
 ```xml
 <dependency>
-    <groupId>com.inwx.domrobot</groupId>
-    <artifactId>java-client</artifactId>
-    <version>3.0</version>
+    <groupId>com.inwx</groupId>
+    <artifactId>domrobot</artifactId>
+    <version>3.1</version>
 </dependency>
 ```
-
-We are working on getting it into the official maven repository.
 
 Example
 -------
@@ -58,7 +50,7 @@ public class DomaincheckExample {
 
         String username = "";
         String password = "";
-        String sharedSecret = "";
+        String sharedSecret = ""; // Only necessary if 2FA is enabled.
         String domain = "my-test-domain-which-is-definitely-not-registered6737.com";
 
         // By default the ApiClient uses the test api (OT&E). If you want to use the production/live api
