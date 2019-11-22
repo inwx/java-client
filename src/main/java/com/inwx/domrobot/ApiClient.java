@@ -19,6 +19,7 @@
 package com.inwx.domrobot;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
@@ -162,7 +163,7 @@ public class ApiClient {
         HttpPost postRequest;
         try {
             postRequest = (HttpPost) xmlRpcRequestTemplate.clone();
-            postRequest.setEntity(new StringEntity(gson.toJson(payload)));
+            postRequest.setEntity(new StringEntity(gson.toJson(payload), StandardCharsets.UTF_8));
         } catch (CloneNotSupportedException exception) {
             throw new IOException("Could not set body for request. ", exception);
         }
