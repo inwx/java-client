@@ -39,7 +39,7 @@ import com.inwx.domrobot.model.BasicResponse;
  */
 public class ApiClient {
 
-    public static final String VERSION = "3.0";
+    public static final String VERSION = "3.1.1";
     public static final String LIVE_URL = "https://api.domrobot.com";
     public static final String OTE_URL = "https://api.ote.domrobot.com";
 

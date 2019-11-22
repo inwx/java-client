@@ -23,7 +23,7 @@ Installation
 
 If you use gradle:
 ```gradle
-compile 'com.inwx:domrobot:3.1'
+compile 'com.inwx:domrobot:3.1.1'
 ```
 
 Or if you use maven:
@@ -31,7 +31,7 @@ Or if you use maven:
 <dependency>
     <groupId>com.inwx</groupId>
     <artifactId>domrobot</artifactId>
-    <version>3.1</version>
+    <version>3.1.1</version>
 </dependency>
 ```
 

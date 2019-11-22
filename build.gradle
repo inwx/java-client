@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'com.inwx'
-version '3.1'
+version '3.1.1'
 
 allprojects {
     if (project.plugins.hasPlugin('java')) {
