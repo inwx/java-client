@@ -17,7 +17,7 @@ allprojects {
         mavenCentral()
     }
 
-    project.pluginManager.withPlugin("com.diffplug.gradle.spotless") {
+    project.pluginManager.withPlugin("com.diffplug.spotless") {
         spotless {
             java {
                 licenseHeaderFile rootProject.file('extra/licensing/mit-license.java')
