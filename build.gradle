@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'java-library'
     id 'maven-publish'
-    id 'com.diffplug.gradle.spotless' version '3.24.2'
+    id 'com.diffplug.spotless' version '5.15.2'
 }
 
 group 'com.inwx'
@@ -42,9 +42,9 @@ allprojects {
 }
 
 dependencies {
-    api 'com.google.code.gson:gson:2.8.5'
+    api 'com.google.code.gson:gson:2.8.8'
     implementation 'org.jboss.aerogear:aerogear-otp-java:1.0.0'
-    implementation 'org.apache.httpcomponents:httpclient:4.5.9'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
 }
 
 apply from: './deploy.gradle'
