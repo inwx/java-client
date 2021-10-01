@@ -1,8 +1,8 @@
 plugins {
     id 'java'
-    id 'com.diffplug.gradle.spotless'
+    id 'com.diffplug.spotless'
 }
 
 dependencies {
-    compile project.parent
+    implementation project.parent
 }
