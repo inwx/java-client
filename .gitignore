@@ -22,3 +22,7 @@ nbproject/
 build/
 nbbuild/
 dist/
+*.secrets
+*.env
+*.key
+.act/
