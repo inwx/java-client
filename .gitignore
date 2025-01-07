@@ -26,3 +26,4 @@ dist/
 *.env
 *.key
 .act/
+config.yml
