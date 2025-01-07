@@ -1,8 +1,9 @@
 plugins {
     id 'java'
     id 'java-library'
-    id 'maven-publish'
     id 'com.diffplug.spotless' version '6.25.0'
+    id 'org.jreleaser' version '1.16.0'
+    id 'application'
 }
 
 java {
@@ -51,4 +52,57 @@ dependencies {
     implementation 'org.apache.httpcomponents:httpclient:4.5.14'
 }
 
-apply from: './deploy.gradle'
+tasks.assembleDist.doFirst {
+    mkdir layout.buildDirectory.dir("jreleaser")
+}
+
+jreleaser {
+    environment {
+        variables = 'config.yml'
+
+        properties.put('JRELEASER_BRANCH', 'master')
+    }
+
+    project {
+        authors = ['INWX Developer']
+        license = 'MIT'
+
+        links {
+            homepage = 'https://github.com/inwx/java-client'
+        }
+        inceptionYear = '2014'
+        description = 'INWX Domrobot Java Client'
+    }
+
+    release {
+        github {
+            repoOwner = 'inwx'
+            overwrite = true
+        }
+    }
+    distributions {
+        app {
+            distributionType = 'SINGLE_JAR'
+            artifact {
+                path = 'build/libs/domrobot-{{projectVersion}}.jar'
+            }
+        }
+    }
+
+    signing {
+        active = 'ALWAYS'
+        armored = true
+    }
+
+    deploy {
+        maven {
+            mavenCentral {
+                app {
+                    active = 'ALWAYS'
+                    url = 'https://central.sonatype.com/api/v1/publisher'
+                    stagingRepository('target/staging-deploy')
+                }
+            }
+        }
+    }
+}
