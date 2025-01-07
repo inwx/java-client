@@ -14,7 +14,9 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
-      - name: Publish package
+      - name: Create staging artifacts
+        run: ./gradlew publish
+      - name: Release package
         run: ./gradlew jreleaserFullRelease
         env:
           JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
